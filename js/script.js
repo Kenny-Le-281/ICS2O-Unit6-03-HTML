@@ -14,8 +14,19 @@ if (navigator.serviceWorker) {
 }
 
 /**
- * This function displays an alert.
- */
-function myButtonClicked() {
-  document.getElementById("hello-world").innerHTML = "<p>Hello, World!</p>"
+ * Get API info.
+*/
+
+const getWeather = async (URLAddress) => {
+  try {
+    const result = await fetch(URLAddress)
+    const jsonData = await result.json()
+    console.log(jsonData)
+    document.getElementById("api-weather").innerHTML =
+    jsonData.temp
+  }
 }
+
+
+getWeather("https://api.openweathermap.org/data/2.5/weather?lat=45.4211435&lon=-75.6900574&appid=fe1d80e1e103cff8c6afd190cad23fa5")
+
