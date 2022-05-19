@@ -21,10 +21,15 @@ const getWeather = async (URLAddress) => {
   try {
     const result = await fetch(URLAddress)
     const jsonData = await result.json()
-    console.log(jsonData)
-    const temperature = jsonData.main.temp
-    document.getElementById("api-weather").innerHTML = "<h5>The current weather is " + temperature.toFixed(0) + "°C</h5>"
+    console.log(jsonData.main.temp)
+    const temperature = jsonData.main.temp - 273.15
+    console.log(jsonData.weather.icon)
+    const symbol = jsonData.weather.icon
+    document.getElementById("api-weather").innerHTML = "The current weather is " + temperature.toFixed(0) + "°C " + symbol
+  } catch (err) {
+    console.log(err)
   }
 }
+
 
 getWeather("https://api.openweathermap.org/data/2.5/weather?lat=45.4211435&lon=-75.6900574&appid=fe1d80e1e103cff8c6afd190cad23fa5")
