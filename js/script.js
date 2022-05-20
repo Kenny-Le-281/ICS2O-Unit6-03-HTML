@@ -14,9 +14,8 @@ if (navigator.serviceWorker) {
 }
 
 /**
- * Get API info.
+ * Get API for weather.
 */
-
 const getWeather = async (URLAddress) => {
   try {
     const result = await fetch(URLAddress)
