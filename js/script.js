@@ -25,7 +25,7 @@ const getWeather = async (URLAddress) => {
     console.log(jsonData.weather.icon)
     const symbol = jsonData.weather[0].icon
     const description = jsonData.weather[0].description
-    document.getElementById("api-weather").innerHTML = "<h5>The current weather is " + temperature.toFixed(0) + "°C</h5>" + "<img src='http://openweathermap.org/img/wn/" + symbol + "@2x.png' alt='Weather Icon' width='10%'>" + description
+    document.getElementById("api-weather").innerHTML = "<h5>The current weather is " + temperature.toFixed(0) + "°C" + "<img src='http://openweathermap.org/img/wn/" + symbol + "@2x.png' alt='Weather Icon' width='15%'>" + "with " + description
   } catch (err) {
     console.log(err)
     document.getElementById("api-weather").innerHTML = "Error fetching current weather."
